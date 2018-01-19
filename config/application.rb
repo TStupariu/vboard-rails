@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module Vboard
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.api_only = true
     config.load_defaults 5.1
 
     config.action_dispatch.default_headers = {

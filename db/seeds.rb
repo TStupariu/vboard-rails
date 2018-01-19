@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#
+if (!User.any? and !Profile.any?)
+  for i in 0..20
+    u = User.create(email: "user#{i}@gmail.com")
+    u.save
+    p = Profile.create(user_id: u.id, name: "Name#{i}", profile_picture_url: "http://picture.com/#{i}")
+    p.save
+  end
+end
+#
+# if (!Room.any?)
+#   for i in 0..3
+#     Room.create(name: "RoomName#{i}", password: "Password#{i}", description: "Description#{i}", )
+#   end
+# end
