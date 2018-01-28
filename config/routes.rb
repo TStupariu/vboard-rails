@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   # Profile routes
   get '/profile/index', to: 'profile#index'
   get '/profile/:id', to: 'profile#getByUserId'
+  post '/profile/create', to: 'profile#create'
 end
