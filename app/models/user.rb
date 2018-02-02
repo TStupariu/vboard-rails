@@ -6,7 +6,9 @@ class User < ApplicationRecord
 
   # Validations
   has_one :profile
-  # has_many :user_rooms
-  # has_many :rooms, through: :user_rooms
+  has_many :rooms
+
+  has_many :user_rooms
+  has_many :rooms, through: :user_rooms
 end
 

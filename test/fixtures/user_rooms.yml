@@ -3,9 +3,7 @@
 one:
   user_id: 1
   room_id: 1
-  role: MyString
 
 two:
   user_id: 1
   room_id: 1
-  role: MyString

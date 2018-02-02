@@ -8,10 +8,14 @@
 #
 if (!User.any? and !Profile.any?)
   for i in 0..20
-    u = User.create(email: "user#{i}@gmail.com")
+    u = User.create(email: "user#{i}@gmail.com", password: "password")
     u.save
     p = Profile.create(user_id: u.id, name: "Name#{i}", profile_picture_url: "http://picture.com/#{i}")
     p.save
+    room = Room.create(name: "Room#{i}", password: "password", is_public: true, creator_id: u.id)
+    room.save
+    userRoom = UserRoom.create(user_id: u.id, room_id: room.id)
+    userRoom.save
   end
 end
 #
