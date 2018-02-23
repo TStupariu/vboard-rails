@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'auth'
   # User routes
   get '/users/index', to: 'users#index'
+  get '/users/getIdByEmail/:email', to: 'users#getIdByEmail'
   get '/users/:id', to: 'users#getUserByIndex'
-
   # Profile routes
   get '/profile/index', to: 'profile#index'
   get '/profile/:email', to: 'profile#getByUserId'
