@@ -36,8 +36,13 @@ class RoomsController < ApplicationController
 
   def joinPublicRoom
     user_id = User.find_by_email(params[:user_email]).id
-    @userRoom = UserRoom.create(user_id: user_id, room_id: params[:room_id])
-    @userRoom.save
+    room = UserRoom.exists?(user_id: user_id, room_id: params[:room_id])
+    if (room)
+      @userRoom = UserRoom.find_by_user_id_and_room_id(user_id, params[:room_id])
+    else
+      @userRoom = UserRoom.create(user_id: user_id, room_id: params[:room_id])
+      @userRoom.save
+    end
   end
 
   def getRoomById
