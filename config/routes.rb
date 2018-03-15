@@ -14,8 +14,10 @@ Rails.application.routes.draw do
   # Rooms routes
   get '/room/index', to: 'rooms#index'
   get '/room/publicRooms', to: 'rooms#getPublicRooms'
+  get '/room/privateRooms', to: 'rooms#getPrivateRooms'
   post '/room/create', to: 'rooms#create'
   post '/room/joinPublic', to: 'rooms#joinPublicRoom'
+  post '/room/joinPrivate', to: 'rooms#joinPrivateRoom'
   get '/room/participants/:room_id', to: 'rooms#getRoomParticipants'
   get '/room/getRoomById/:id', to: 'rooms#getRoomById'
   get '/room/userIsOwner/:room_id/:user_email', to: 'rooms#userIsOwner'
